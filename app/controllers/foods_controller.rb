@@ -1,23 +1,46 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @foods = @user.foods
+    else
+      @foods = Food.all
+    end
   end
 
   def new
-    @food = Food.new
+    @user = User.find(params[:user_id])
+    @food = @user.foods.build
+  end
+
+  def show
+    @user = User.find(params[:user_id])
+    @food = @user.foods.find(params[:id])
   end
 
   def destroy
-    if session[:user_id].nil?
-      redirect_to root_path, alert: 'You must be logged in to delete a food'
+    @user = User.find(params[:user_id])
+    @food = @user.foods.find(params[:id])
+    @food.destroy
+    flash[:notice] = 'Food item has been deleted.'
+    redirect_to user_foods_path(@user)
+  end
+
+  def create
+    @user = User.find(params[:user_id])
+    @food = @user.foods.build(food_params)
+
+    if @food.save
+      redirect_to user_foods_path(@user), notice: 'Food added successfully'
     else
-      @food = Food.find_by(id: params[:id], user_id: session[:user_id])
-      if @food
-        @food.destroy
-        redirect_to user_foods_path(user_id: session[:user_id]), notice: 'Food deleted successfully'
-      else
-        redirect_to user_foods_path(user_id: session[:user_id]), alert: 'Food not found'
-      end
+      flash.now[:error] = 'Failed to add food'
+      render :new
     end
+  end
+
+  private
+
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price)
   end
 end

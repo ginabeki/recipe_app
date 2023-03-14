@@ -1,23 +1,29 @@
 <h1>All Foods</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Food</th>
-      <th>Measurement Unit</th>
-      <th>Unit Price</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @foods.each do |food| %>
+<%= link_to "Add Food", new_user_food_path(@user) %>
+
+<% if @foods.any? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= food.name %></td>
-        <td><%= food.measurement_unit %></td>
-        <td><%= number_to_currency(food.price) %></td>
-        <td>
-          <%= button_to "Delete", user_food_path(food.user, food), method: :delete, data: { confirm: "Are you sure you want to delete this food?" } %>
-        </td>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= number_to_currency(food.price) %></td>
+          <td>
+            <%= button_to "Delete", user_food_path(@user, food), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No food found.</p>
+<% end %>

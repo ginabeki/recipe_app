@@ -1,0 +1,21 @@
+<div class="recipes">
+  <h1>All Recipes</h1>
+  <%= link_to "Add Recipe", new_recipe_path(current_user), class: "add-recipe" %>
+
+  <% if @recipes.any? %>
+   
+        <% @recipes.each do |recipe| %>
+            <%= link_to recipe_path(recipe, user_id: current_user.id) do %>
+                <p><%= recipe.name %></p>
+              <% end %>
+              
+            <p>By: <%= current_user.name %></p>
+            <p>Total Items 59</p>
+            <p>Total Price: $100</p>
+        <% end %>
+ 
+  <% else %>
+    <p>No recipes found.</p>
+  <% end %>
+  
+</div>

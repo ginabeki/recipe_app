@@ -31,3 +31,4 @@
 /config/master.key
 # ignore env file
 .env
+/node_modules

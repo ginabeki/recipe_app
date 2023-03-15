@@ -1,6 +1,6 @@
 <div class="foods">
 <h1>All Foods</h1>
-<%= link_to "Add Food", new_user_food_path(@user), class: "add-food" %>
+<%= link_to "Add Food", new_food_path(@user), class: "add-food" %>
 
 <% if @foods.any? %>
   <table>
@@ -19,7 +19,7 @@
           <td><%= food.measurement_unit %></td>
           <td><%= number_to_currency(food.price) %></td>
           <td>
-            <%= button_to "Delete", user_food_path(@user, food), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= button_to "Delete", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %>
           </td>
         </tr>
       <% end %>

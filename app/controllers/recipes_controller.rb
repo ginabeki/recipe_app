@@ -3,13 +3,17 @@ class RecipesController < ApplicationController
     @recipes = current_user.recipes
   end
 
+  def public_recipes
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
+  end
+
   def new
     @recipe = current_user.recipes.build
     @user = current_user
   end
 
   def show
-    @recipe = current_user.recipes.find(params[:id])
+    @recipes = Recipe.where(public: true, id: params[:id])
   end
 
   def destroy

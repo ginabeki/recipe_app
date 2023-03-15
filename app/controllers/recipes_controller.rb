@@ -16,14 +16,14 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.find(params[:id])
     @recipe.destroy
     flash[:notice] = 'Recipe has been deleted.'
-    redirect_to user_recipes_path(current_user)
+    redirect_to recipe_path(current_user)
   end
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
-      redirect_to user_recipe_path(current_user, @recipe), notice: 'Recipe added successfully'
+      redirect_to recipe_path(current_user, @recipe), notice: 'Recipe added successfully'
     else
       flash.now[:error] = 'Failed to add recipe'
       render :new

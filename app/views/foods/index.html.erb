@@ -1,5 +1,6 @@
+<div class="foods">
 <h1>All Foods</h1>
-<%= link_to "Add Food", new_user_food_path(@user) %>
+<%= link_to "Add Food", new_user_food_path(@user), class: "add-food" %>
 
 <% if @foods.any? %>
   <table>
@@ -27,3 +28,4 @@
 <% else %>
   <p>No food found.</p>
 <% end %>
+</div>

@@ -1,0 +1,36 @@
+<div class="recipes">
+  <h1>All Recipes</h1>
+  <%= link_to "Add Recipe", new_user_recipe_path(current_user), class: "add-recipe" %>
+
+  <% if @recipes.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Preparation Time</th>
+          <th>Cooking Time</th>
+          <th>Description</th>
+          <th>Public</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipes.each do |recipe| %>
+          <tr>
+            <td><%= recipe.name %></td>
+            <td><%= recipe.preparation_time %></td>
+            <td><%= recipe.cooking_time %></td>
+            <td><%= recipe.description %></td>
+            <td><%= recipe.public ? 'Yes' : 'No' %></td>
+            <td>
+              <%= button_to "Delete", user_recipe_path(current_user, recipe), method: :delete, data: { confirm: "Are you sure?" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No recipes found.</p>
+  <% end %>
+  
+</div>

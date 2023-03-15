@@ -1,0 +1,89 @@
+.recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.recipes h1 {
+  text-align: center;
+  color: #164e63;
+}
+
+.add-recipe {
+  text-decoration: none;
+  background-color: #ea6036;
+  cursor: pointer;
+  color: #fff;
+  width: 80px;
+  text-align: center;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.new-recipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.new-recipe h1 {
+  color: #164e63;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+input[type='number'],
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+input[type='number'] {
+  width: 50%;
+}
+
+.new_recipe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input[type='submit'],
+.actions__button {
+  display: block;
+  padding: 0.5em;
+  background-color: #ea6036;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type='submit']:hover,
+.actions__button:hover {
+  background-color: #f17049;
+}
+
+.new_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 3rem 0;
+}

@@ -1,1 +1,55 @@
 <h1>Recipe Detail</h1>
+<div class="recipes">
+  <h1><%= @recipe.name %></h1>
+<div class="recipe-header">
+
+<div class="recipe-info">
+<p>Preparation time: <%= @recipe.preparation_time %></p>
+<p>Cooking time: <%= @recipe.cooking_time %></p>
+<p>Steps go here...</p>
+</div>
+<%= form_for @recipe, html: { class: "my-form-class" } do |f| %>
+  <%= f.label :public, "Public" %>
+  <label class="switch">
+    <%= f.check_box :public, {}, "1", "0" %>
+    <span class="slider"></span>
+  </label>
+<% end %>
+<%= hidden_field_tag :recipe_id, @recipe.id %>
+
+</div>
+<div class="recipe-details-btn">
+<%= button_to "Generate Shopping List", recipe_path(@recipe), method: :get, data: { confirm: "Are you sure?" } %>
+<%= button_to "Add ingredient", ingredients_new_path(@recipe), method: :get, data: { confirm: "Are you sure?" } %>
+</div>
+  <% if @foods.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= number_to_currency(food.price) %></td>
+          <td>
+          <div class="recipe-details-btn">
+            <%= button_to "Modify", food_path(food), method: :put, data: { confirm: "Are you sure?" } %>
+            <%= button_to "Remove", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %>
+            <div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No food found.</p>
+<% end %>
+  
+</div>

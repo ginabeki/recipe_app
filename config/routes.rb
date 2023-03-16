@@ -8,12 +8,7 @@ Rails.application.routes.draw do
   get '/public_recipes', to: 'recipes#public_recipes'
   get '/ingredients/new', to: 'recipes#new_ingredient'
   post '/ingredients', to: 'recipes#create_ingredient'
-  # get '/toggle_public', to: 'recipes#toggle_public'
-  # resources :recipes do
-  #   member do
-  #     patch :toggle_public
-  #   end
-  # end
+ 
   
   resources :foods, only: [:index, :show, :new, :create, :destroy]
   resources :users, only: [:index]

@@ -85,10 +85,7 @@ td {
   padding: 10px;
 }
 
-/* td:nth-child(even) {
-    background-color: red;
-  }
-
-  td:nth-child(odd) {
-    background-color: red;
-  } */
+td a {
+  text-decoration: none;
+  color: #164e63;
+}

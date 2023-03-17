@@ -17,7 +17,11 @@
       <tbody>
         <% @recipes.each do |recipe| %>
           <tr>
-            <td><%= recipe.name %></td>
+            <td>
+            <%= link_to recipe_path(recipe, user_id: current_user.id) do %>
+              <p><%= recipe.name %></p>
+            <% end %>
+            </td>
             <td><%= recipe.preparation_time %></td>
             <td><%= recipe.cooking_time %></td>
             <td><%= recipe.description %></td>

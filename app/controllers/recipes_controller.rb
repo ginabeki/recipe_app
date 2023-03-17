@@ -40,6 +40,14 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(current_user)
   end
 
+  def general_shopping_list
+    @food_ids = current_user.foods
+      .joins(:recipe_foods)
+      .distinct
+      .pluck(:id)
+    @foods = current_user.foods.where.not(id: @food_ids)
+  end
+
   def create
     @recipe = current_user.recipes.build(recipe_params)
 

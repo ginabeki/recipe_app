@@ -186,3 +186,8 @@ input:checked + .slider::before {
   gap: 1rem;
   font-size: 1.2rem;
 }
+
+.shopping-info {
+  display: flex;
+  gap: 2rem;
+}

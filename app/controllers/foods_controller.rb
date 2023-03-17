@@ -10,13 +10,13 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @food = @user.foods.find(params[:id])
+    @food = current_user.foods.find(params[:id])
   end
 
   def destroy
     @recipe_food = RecipeFood.where(food_id: params[:id])
-    @recipe_food.first.destroy
+    @recipe_food.first&.destroy
+
     @user = current_user
     @food = @user.foods.find(params[:id])
     @food.destroy

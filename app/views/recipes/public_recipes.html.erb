@@ -1,7 +1,5 @@
 <div class="recipes">
-  <h1>All Recipes</h1>
-  <%= link_to "Add Recipe", new_recipe_path(current_user), class: "add-recipe" %>
-
+  <h1>Public Recipes</h1>
   <% if @recipes.any? %>
    
         <% @recipes.each do |recipe| %>
@@ -10,8 +8,8 @@
               <% end %>
               
             <p>By: <%= current_user.name %></p>
-            <p>Total Items 59</p>
-            <p>Total Price: $100</p>
+            <p>Total Items <%= recipe.foods.length %></p>
+            <p>Total Price: $<%= recipe.foods.sum(:price) %></p>
         <% end %>
  
   <% else %>

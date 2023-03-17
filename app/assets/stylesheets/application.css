@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap');
 
 * {
   margin: 0;
@@ -27,6 +28,7 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
   font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar {

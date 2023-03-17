@@ -40,6 +40,14 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(current_user)
   end
 
+  def general_shopping_list
+    @food_ids = current_user.foods
+      .joins(:recipe_foods)
+      .distinct
+      .pluck(:id)
+    @foods = current_user.foods.where.not(id: @food_ids)
+  end
+
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
@@ -54,7 +62,7 @@ class RecipesController < ApplicationController
   def create_ingredient
     @food = current_user.foods.build(food_params.except(:recipe_id))
     @recipe = Recipe.find(params[:recipe_food][:recipe_id])
-    @recipe_food = RecipeFood.new(recipe: @recipe, food: @food)
+    @recipe_food = RecipeFood.new(recipe: @recipe, food: @food, quantity: food_params[:quantity])
 
     return unless @recipe_food.save
 
@@ -68,6 +76,6 @@ class RecipesController < ApplicationController
   end
 
   def food_params
-    params.require(:recipe_food).permit(:name, :measurement_unit, :price, :recipe_id)
+    params.require(:recipe_food).permit(:name, :measurement_unit, :price, :recipe_id, :quantity)
   end
 end

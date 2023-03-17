@@ -1,0 +1,34 @@
+
+<div class="recipes">
+  <h1>Shopping List</h1>
+<div class="recipe-header">
+
+<div class="shopping-info">
+<p>Amount of food to buy: <%= @foods.length %></p>
+<p>Total value of food needed: $<%= @foods.sum(:price) %></p>
+</div>
+</div>
+  <% if @foods.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= number_to_currency(food.price) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No food found.</p>
+<% end %>
+  
+</div>

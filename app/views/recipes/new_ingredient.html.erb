@@ -1,24 +1,29 @@
 <div class="new-recipe">
   <h1>Add new food</h1>
 
- <%= form_for :recipe_food, url: '/ingredients', method: :post do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  
-  <div>
-    <%= f.label :measurement_unit %>
-    <%= f.text_field :measurement_unit %>
-  </div>
-  
-  <div>
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </div>
-  <%= f.hidden_field :recipe_id, value: @recipe.id %>
-  <br>
-  <%= f.submit "Add food" %>
-<% end %>
+  <%= form_for :recipe_food, url: '/ingredients', method: :post do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
 
+    <div>
+      <%= f.label :measurement_unit %>
+      <%= f.text_field :measurement_unit %>
+    </div>
+
+    <div>
+      <%= f.label :quantity %>
+      <%= f.number_field :quantity %>
+    </div>
+
+    <div>
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+
+    <%= f.hidden_field :recipe_id, value: @recipe.id %>
+    <br>
+    <%= f.submit "Add food" %>
+  <% end %>
 </div>

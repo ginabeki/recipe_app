@@ -54,7 +54,7 @@ class RecipesController < ApplicationController
   def create_ingredient
     @food = current_user.foods.build(food_params.except(:recipe_id))
     @recipe = Recipe.find(params[:recipe_food][:recipe_id])
-    @recipe_food = RecipeFood.new(recipe: @recipe, food: @food)
+    @recipe_food = RecipeFood.new(recipe: @recipe, food: @food, quantity: food_params[:quantity])
 
     return unless @recipe_food.save
 
@@ -68,6 +68,6 @@ class RecipesController < ApplicationController
   end
 
   def food_params
-    params.require(:recipe_food).permit(:name, :measurement_unit, :price, :recipe_id)
+    params.require(:recipe_food).permit(:name, :measurement_unit, :price, :recipe_id, :quantity)
   end
 end

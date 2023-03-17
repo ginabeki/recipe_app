@@ -1,1 +1,10 @@
-<h1>Show foods</h1>
+<div class="recipes">
+  <h1><%= @food.name %></h1>
+<div class="recipe-header">
+
+<div class="recipe-info">
+<p>Measurement unit: <%= @food.measurement_unit %></p>
+<p>Quantity : <%= @food.quantity %></p>
+<p>Unit Price : $<%= @food.price %></p>
+
+</div>

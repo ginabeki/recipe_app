@@ -1,7 +1,7 @@
-<div class="new-food">
-  <h1>New Food</h1>
+<div class="new-recipe">
+  <h1>Add new food</h1>
 
-  <%= form_for [@food] do |f| %>
+  <%= form_for :recipe_food, url: '/ingredients', method: :post do |f| %>
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -22,8 +22,8 @@
       <%= f.text_field :price %>
     </div>
 
-    <div>
-      <%= f.submit "Create Food" %>
-    </div>
+    <%= f.hidden_field :recipe_id, value: @recipe.id %>
+    <br>
+    <%= f.submit "Add food" %>
   <% end %>
 </div>

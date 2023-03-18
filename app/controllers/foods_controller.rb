@@ -28,7 +28,7 @@ class FoodsController < ApplicationController
     @food = current_user.foods.build(food_params)
 
     if @food.save
-      redirect_to food_path(current_user, @food), notice: 'Food added successfully'
+      redirect_to foods_path(current_user), notice: 'Food added successfully'
     else
       flash.now[:error] = 'Failed to add food'
       render :new

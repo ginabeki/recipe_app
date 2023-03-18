@@ -12,7 +12,7 @@
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
-  - [👥 Author ](#-author-)
+  - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
@@ -120,7 +120,7 @@ Example command:
   rails spec spec/models/
 ``` -->
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Gina Beki**
 
@@ -128,6 +128,11 @@ Example command:
 - Twitter: [@gina](https://twitter.com/ginabeki)
 - LinkedIn: [@ginabeki](https://www.linkedin.com/in/ginabeki/)
 
+👤 **Abdallah Antony**
+
+- GitHub: [@abdallahmalima](https://github.com/abdallahmalima)
+- Twitter: [@softmal1](https://twitter.com/Softmal1)
+- LinkedIn: [Abdallah Antony](https://www.linkedin.com/in/abdallah-malima-antony/)
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Add GUI**

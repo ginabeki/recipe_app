@@ -34,6 +34,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe_food = RecipeFood.where(recipe_id: params[:id])
+    @recipe_food.first&.destroy
     @recipe = current_user.recipes.find(params[:id])
     @recipe.destroy
     flash[:notice] = 'Recipe has been deleted.'

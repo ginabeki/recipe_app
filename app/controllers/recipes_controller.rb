@@ -54,7 +54,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
-      redirect_to recipe_path(current_user, @recipe), notice: 'Recipe added successfully'
+      redirect_to recipes_path(current_user), notice: 'Recipe added successfully'
     else
       flash.now[:error] = 'Failed to add recipe'
       render :new

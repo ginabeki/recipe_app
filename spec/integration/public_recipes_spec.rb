@@ -8,8 +8,8 @@ describe '/public_recipes', type: :feature do
     fill_in 'Password', with: user.password
     click_button 'Log in'
     expect(page).to have_text('Signed in successfully.')
-    recipe = FactoryBot.create(:recipe, public: true)
-    recipe2 = FactoryBot.create(:recipe, public: false)
+    FactoryBot.create(:recipe, public: true)
+    FactoryBot.create(:recipe, public: false)
     visit '/public_recipes'
     expect(page).to have_text('Public Recipes')
   end

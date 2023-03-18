@@ -8,7 +8,6 @@ RSpec.feature 'RecipeShows', type: :system do
     login_as(user) # sign in the user
   end
   describe 'Show page' do
- 
     it "can click on the 'Add ingredient' button" do
       visit recipe_path(recipe)
       click_button 'Add ingredient'

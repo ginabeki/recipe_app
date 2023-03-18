@@ -1,0 +1,21 @@
+<div class="recipes">
+  <h1>All Recipes</h1>
+  <%= link_to "Add Recipe", new_recipe_path(current_user), class: "add-recipe" %>
+  <% if @recipes.any? %>
+    
+        <% @recipes.each do |recipe| %>
+<div class="recipe-group">
+         <div class="name-btn">
+            <%= link_to recipe_path(recipe, user_id: current_user.id) do %>
+              <p><%= recipe.name.capitalize %></p>                
+            <% end %>
+            <%= button_to "Remove", recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } %>
+            </div>
+            <p><%= recipe.description %></p>          
+        </div>
+        <% end %>
+  <% else %>
+    <p>No recipes found.</p>
+  <% end %>
+  
+</div>

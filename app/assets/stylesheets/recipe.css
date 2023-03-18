@@ -1,0 +1,255 @@
+.recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.recipes h1 {
+  text-align: center;
+  color: #164e63;
+}
+
+.add-recipe {
+  text-decoration: none;
+  background-color: #ea6036;
+  cursor: pointer;
+  color: #fff;
+  width: 90px;
+  text-align: center;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.new-recipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.new-recipe h1 {
+  color: #164e63;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+input[type='number'],
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+input[type='number'] {
+  width: 50%;
+}
+
+.new_recipe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input[type='submit'],
+.actions__button {
+  display: block;
+  padding: 0.5em;
+  background-color: #ea6036;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type='submit']:hover,
+.actions__button:hover {
+  background-color: #f17049;
+}
+
+.new_user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.recipe-details-btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.recipe-details-btn button {
+  padding: 0.3rem;
+  text-align: center;
+  background-color: #ea6036;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.recipe-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.my-form-class {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+.shopping-info {
+  display: flex;
+  gap: 2rem;
+}
+
+.public-link {
+  text-decoration: none;
+}
+
+.public-name {
+  color: #164e63;
+}
+
+.recipe-group {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+  padding: 1rem;
+  align-items: center;
+  border: 1px solid black;
+  width: 65%;
+}
+
+.name-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.name-btn a {
+  text-decoration: none;
+  color: #164e63;
+}
+
+.name-btn button {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #ea6036;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.group-details {
+  display: flex;
+}
+
+.public-recipes {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.public-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

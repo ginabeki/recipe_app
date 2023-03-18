@@ -1,0 +1,30 @@
+<div class="user-details">
+<% if @user.present? %>
+  <h1>User Details</h1>
+  <p class="user-name">Name: <%= @user.name %></p>
+<% end %>
+
+<h2>All Foods</h2>
+<% if @foods.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= number_to_currency(food.price) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No food found.</p>
+<% end %>
+</div>

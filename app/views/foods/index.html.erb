@@ -1,0 +1,37 @@
+<div class="foods">
+<h1>All Foods</h1>
+<%= link_to "Add Food", new_food_path(@user), class: "add-food" %>
+
+<% if @foods.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td>
+          <%= link_to food_path(food, user_id: current_user.id) do %>
+            <p><%= food.name.capitalize %></p>
+          <% end %>
+          </td>
+          <td><%= food.measurement_unit.capitalize %></td>
+          <td><%= food.quantity %></td>
+          <td><%= number_to_currency(food.price) %></td>
+          <td>
+            <%= button_to "Delete", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No food found.</p>
+<% end %>
+</div>

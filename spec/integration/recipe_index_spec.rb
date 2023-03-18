@@ -26,8 +26,6 @@ RSpec.feature 'FoodIndices', type: :system do
       visit new_recipe_path(user)
 
       fill_in 'Name', with: 'Pizza'
-      fill_in 'Preparation time(minutes)', with: 25
-      fill_in 'Cooking time(minutes)', with: 30
       fill_in 'Description', with: 'Desc'
 
       click_button 'Create Recipe'

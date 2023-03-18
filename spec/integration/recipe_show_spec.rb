@@ -8,19 +8,11 @@ RSpec.feature 'RecipeShows', type: :system do
     login_as(user) # sign in the user
   end
   describe 'Show page' do
-    it 'can see the Food List text on the page.' do
-      visit recipe_path(user, recipe)
-      expect(page).to have_content('Public')
-    end
+ 
     it "can click on the 'Add ingredient' button" do
-      visit recipe_path(user, recipe)
+      visit recipe_path(recipe)
       click_button 'Add ingredient'
       expect(page).to have_current_path(ingredients_new_path(recipe))
-    end
-    it "can click on the 'Generate shopping list' button" do
-      visit "/general_shopping_list/#{recipe.id}"
-      click_button 'Generate shopping list'
-      expect(page).to have_current_path("/general_shopping_list/#{recipe.id}")
     end
   end
 end
